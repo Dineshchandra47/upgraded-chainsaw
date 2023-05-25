@@ -17,6 +17,7 @@ export default function Login() {
     draggable: true,
     theme: "dark",
   };
+
   useEffect(() => {
     if (localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
       navigate("/");
@@ -82,6 +83,16 @@ export default function Login() {
             name="password"
             onChange={(e) => handleChange(e)}
           />
+          <button
+            onClick={(e) => {
+              setValues({
+                username: "leniw94183",
+                password: "leniw94183@introace.com",
+              });
+            }}
+          >
+            Test credentials
+          </button>
           <button type="submit">Log In</button>
           <span>
             Don't have an account ? <Link to="/register">Create One.</Link>
