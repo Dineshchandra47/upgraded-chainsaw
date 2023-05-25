@@ -10,13 +10,6 @@ require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 
-//Checking  API  working or not
-app.get("/hello", (req, res) => {
-  res.status(200).json({
-    message: "API is working",
-  });
-});
-
 
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -32,6 +25,15 @@ mongoose
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
+
+
+//Checking  API  working or not
+app.get("/hello", (req, res) => {
+  res.status(200).json({
+    message: "API is working",
+  });
+});
+
 
 const server = app.listen(process.env.PORT, () =>
   console.log(`Server is up and running  on ${process.env.PORT}`)
