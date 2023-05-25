@@ -10,6 +10,14 @@ require("dotenv").config();
 app.use(cors());
 app.use(express.json());
 
+//Checking  API  working or not
+app.get("/", (req, res) => {
+  res.status(200).json({
+    message: "API is working",
+  });
+});
+
+
 mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
